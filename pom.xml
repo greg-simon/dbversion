@@ -8,10 +8,59 @@
     <packaging>jar</packaging>
 
     <name>dbversion</name>
-    <!--url>http://maven.apache.org</url-->
+    <url>https://github.com/greg-simon/dbversion</url>
+    <description>A small library to manage a database schema within an application</description>
+  
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Greg Simon</name>
+            <email>greg@simo.id.au</email>
+            <url>https://github.com/greg-simon</url>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git@github.com:greg-simon/dbversion.git</connection>
+        <developerConnection>scm:git:git@github.com:greg-simon/dbversion.git</developerConnection>
+        <url>git@github.com:greg-simon/dbversion.git</url>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
